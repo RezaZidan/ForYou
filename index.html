@@ -2,442 +2,345 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <title>Najma Kamelia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Najma Kamelia • Blooming Love</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-      /* ============================================================
-   🌌  AURORA + DREAMY PINK FOG
-============================================================ */
-      body {
+      /* ========== GLOBAL ========== */
+      * {
         margin: 0;
-        overflow: hidden;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
         height: 100vh;
-        background: radial-gradient(
-          circle at 50% 20%,
-          #ffcce6,
-          #ff6fa4,
-          #d06bff,
-          #7f28e0,
-          #34004d
-        );
-        background-size: 400% 400%;
-        animation: auroraMove 10s ease-in-out infinite alternate;
         font-family: "Poppins", sans-serif;
-        position: relative;
-      }
-
-      @keyframes auroraMove {
-        0% {
-          background-position: 0% 0%;
-        }
-        100% {
-          background-position: 100% 100%;
-        }
-      }
-
-      /* Pink fog / dreamy mist */
-      .pinkFog {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 130vw;
-        height: 130vh;
-        background: radial-gradient(
-          circle,
-          rgba(255, 150, 200, 0.35),
-          rgba(255, 0, 100, 0)
-        );
-        filter: blur(70px);
-        animation: fogFloat 15s ease-in-out infinite alternate;
-        pointer-events: none;
-      }
-
-      @keyframes fogFloat {
-        0% {
-          transform: translate(-10%, -10%);
-        }
-        100% {
-          transform: translate(10%, 10%);
-        }
-      }
-
-      /* ============================================================
-   MAIN STAGE
-============================================================ */
-      #stage {
-        width: 650px;
-        height: 740px;
-        position: relative;
-        margin: auto;
-      }
-
-      #canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: 0.4s ease;
-      }
-
-      /* Heart pulse animation */
-      .pulse {
-        animation: pulseHeart 1.8s ease-in-out infinite;
-      }
-
-      @keyframes pulseHeart {
-        0% {
-          transform: scale(1);
-          filter: drop-shadow(0 0 15px #ff4fa7);
-        }
-        50% {
-          transform: scale(1.04);
-          filter: drop-shadow(0 0 30px #ff7fc6);
-        }
-        100% {
-          transform: scale(1);
-          filter: drop-shadow(0 0 15px #ff4fa7);
-        }
-      }
-
-      /* ============================================================
-   MAGIC PEN
-============================================================ */
-      #pen {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        background: white;
-        border: 2px solid #ff2f83;
-        color: #ff0070;
-        position: absolute;
-        transform: translate(-19px, -19px);
+        background: linear-gradient(130deg, #ffc6d9, #ff9ec7, #ff7ab3);
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 20px;
-        box-shadow: 0 0 30px #ff4798, 0 0 60px #ffa0d0;
-        z-index: 10;
+        overflow: hidden;
+        transition: 0.6s;
       }
 
-      /* ============================================================
-   LOVE TEXT CINEMATIC
-============================================================ */
-      #loveText {
-        position: absolute;
-        bottom: -160px;
-        width: 100%;
-        text-align: center;
-        font-size: 65px;
-        font-weight: 900;
-        opacity: 0;
-        transform: translateY(80px);
-        background: linear-gradient(90deg, #fff, #ffd1f0, #ff80c0, #fff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shineText 5s linear infinite;
-        transition: 2s ease;
+      .hidden {
+        display: none;
       }
 
-      @keyframes shineText {
-        from {
-          background-position: 0%;
-        }
-        to {
-          background-position: 400%;
-        }
-      }
-
-      /* ============================================================
-   HEART RAIN (TRANSPARENT HEARTS)
-============================================================ */
-      .rainHeart {
-        position: fixed;
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 18px;
-        animation: fall 4.5s linear infinite;
-        pointer-events: none;
-      }
-
-      @keyframes fall {
-        from {
-          transform: translateY(-10vh) rotate(0deg);
-          opacity: 1;
-        }
-        to {
-          transform: translateY(120vh) rotate(120deg);
-          opacity: 0;
-        }
-      }
-
-      /* ============================================================
-   FLOWER PARTICLES
-============================================================ */
-      .flower {
-        position: fixed;
-        font-size: 25px;
-        animation: floatUp 7s linear infinite;
-        pointer-events: none;
-        opacity: 0.8;
-      }
-
-      @keyframes floatUp {
-        from {
-          transform: translateY(0) rotate(0deg) scale(0.8);
-          opacity: 1;
-        }
-        to {
-          transform: translateY(-120vh) rotate(360deg) scale(1.4);
-          opacity: 0;
-        }
-      }
-
-      /* ============================================================
-   GLITTER PARTICLES
-============================================================ */
-      .glitter {
-        position: fixed;
-        width: 6px;
-        height: 6px;
+      /* ========== CARD / BOX GENRIC ========== */
+      .card {
+        width: 90%;
+        max-width: 420px;
         background: white;
-        border-radius: 50%;
-        box-shadow: 0 0 12px white;
-        animation: glitterFade 2s ease-out forwards;
+        padding: 28px;
+        border-radius: 18px;
+        text-align: center;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+        animation: fadeIn 0.7s ease;
       }
 
-      @keyframes glitterFade {
+      @keyframes fadeIn {
         from {
-          transform: scale(0.2);
-          opacity: 1;
+          opacity: 0;
+          transform: translateY(20px);
         }
         to {
-          transform: scale(1.4);
-          opacity: 0;
-        }
-      }
-
-      /* ============================================================
-   CUPID ARROW
-============================================================ */
-      #arrow {
-        position: fixed;
-        top: 50%;
-        left: -100px;
-        font-size: 60px;
-        opacity: 0;
-        transform: rotate(-20deg);
-        z-index: 20;
-      }
-
-      .arrowFly {
-        opacity: 1;
-        animation: arrowShot 2.5s ease forwards;
-      }
-
-      @keyframes arrowShot {
-        0% {
-          transform: translateX(0) translateY(0) rotate(-20deg);
-        }
-        60% {
-          transform: translateX(700px) translateY(-80px) rotate(-10deg);
-        }
-        100% {
-          transform: translateX(780px) translateY(0) rotate(0deg);
-          opacity: 0;
-        }
-      }
-
-      /* ============================================================
-   BOUQUET
-============================================================ */
-      #bouquet {
-        position: fixed;
-        bottom: -200px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 85px;
-        opacity: 0;
-      }
-
-      .bouquetRise {
-        animation: bouquetShow 3s ease forwards;
-      }
-
-      @keyframes bouquetShow {
-        0% {
-          transform: translate(-50%, 80px);
-          opacity: 0;
-        }
-        100% {
-          transform: translate(-50%, -40px);
           opacity: 1;
+          transform: translateY(0);
         }
+      }
+
+      .btn {
+        margin-top: 18px;
+        padding: 10px 20px;
+        border: none;
+        background: #ff5fa0;
+        color: white;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.25s;
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+
+      /* ========== PAGE CONTAINER ========== */
+      .page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.7s ease;
+      }
+      .show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* ========== QUOTE PAGE ========== */
+      .quote-text {
+        font-size: 1.2rem;
+        margin-top: 15px;
+        line-height: 1.6;
+      }
+
+      .quote-author {
+        margin-top: 10px;
+        opacity: 0.7;
+      }
+
+      /* ========== AMPlOP ANIMASI ========== */
+      .envelope-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .envelope {
+        width: 200px;
+        height: 140px;
+        background: #ffb3d1;
+        position: relative;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        transition: 0.4s;
+      }
+
+      .envelope:hover {
+        transform: translateY(-6px);
+      }
+
+      .envelope:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ff8fbd;
+        clip-path: polygon(0 0, 100% 0, 50% 55%);
+        transition: 0.4s;
+      }
+
+      .letter {
+        width: 180px;
+        height: 120px;
+        background: white;
+        position: absolute;
+        top: 55px;
+        left: 10px;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(40px);
+        opacity: 0;
+        transition: 0.5s;
+        padding: 18px;
+      }
+
+      /* Open State */
+      .open .envelope:before {
+        transform: translateY(-90px);
+      }
+
+      .open .letter {
+        transform: translateY(-70px);
+        opacity: 1;
+      }
+
+      /* ========== LOVE LETTER FULL BOX ========== */
+      .letter-box {
+        max-width: 420px;
+        width: 90%;
+        background: white;
+        padding: 28px;
+        border-radius: 18px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        animation: fadeIn 0.8s ease;
+        text-align: center;
       }
     </style>
   </head>
 
   <body>
-    <div class="pinkFog"></div>
+    <!-- ====================== PAGE 1 ====================== -->
+    <div class="page show" id="page1">
+      <div class="card">
+        <h2>Selamat datang, Najma Kamelia 🌸</h2>
+        <p>Aku mau kasih kamu sesuatu yang lembut dan tumbuh dari hati.</p>
+        <button class="btn" onclick="goTo(2)">Next</button>
+      </div>
+    </div>
 
-    <div id="arrow">🏹</div>
-    <div id="bouquet">💐</div>
+    <!-- ====================== PAGE 2 ====================== -->
+    <div class="page" id="page2">
+      <div class="card">
+        <h2>Untuk kamu… yang selalu tumbuh indah di hatiku 🌹</h2>
 
-    <div id="stage">
-      <canvas id="canvas" width="650" height="650"></canvas>
-      <div id="pen">❤</div>
-      <div id="loveText"></div>
+        <div class="quote-text" id="qtext"></div>
+        <div class="quote-author" id="qauthor"></div>
+
+        <button class="btn" onclick="nextQuote()">Kata lainnya 💌</button>
+        <button class="btn" onclick="goTo(3)">Buka Surat ❤️</button>
+      </div>
+    </div>
+
+    <!-- ====================== PAGE 3 (AMPL0P) ====================== -->
+    <div class="page" id="page3">
+      <div class="card envelope-container">
+        <h2>Untuk Kamu 💗</h2>
+        <p>Klik amplopnya yaa…</p>
+
+        <div class="envelope" id="envelope" onclick="openEnvelope()">
+          <div class="letter">
+            <p style="font-size: 0.9rem">
+              Klik lagi untuk membaca surat sepenuhnya ❤️
+            </p>
+          </div>
+        </div>
+
+        <button class="btn" onclick="goToLetter()">Baca Surat ✨</button>
+      </div>
+    </div>
+
+    <!-- ====================== PAGE 4 (SURAT LOVE) ====================== -->
+    <div class="page" id="page4">
+      <div class="letter-box">
+        <h2>Surat Untuk Kamu 💌</h2>
+        <p style="margin-top: 14px; font-size: 1.1rem; line-height: 1.7">
+          Aku cuma mau kamu tahu… Kamu itu indah. Kamu itu hangat. Kamu itu
+          rumah.
+          <br /><br />
+          Dan aku selalu bersyukur, setiap hari, kamu ada di hidup aku.
+          <br /><br />
+          ❤️ Dari seseorang yang selalu milih kamu tanpa ragu.
+        </p>
+      </div>
     </div>
 
     <script>
-      /* ============================================================
-   HEART MATH
-============================================================ */
-      function heart(t) {
-        return {
-          x: 16 * Math.pow(Math.sin(t), 3),
-          y: -(
-            13 * Math.cos(t) -
-            5 * Math.cos(2 * t) -
-            2 * Math.cos(3 * t) -
-            Math.cos(4 * t)
-          ),
-        };
+      /* PAGE HANDLER */
+      function goTo(pg) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("show"));
+        document.getElementById("page" + pg).classList.add("show");
       }
 
-      function toCanvas(p) {
-        return { x: 325 + p.x * 14, y: 325 + p.y * 14 };
+      /* QUOTES */
+      const quotes = [
+        [
+          "“Aku nggak tau bagaimana dunia membentuk kita, tapi aku tau… kamu selalu jadi bagian terbaiknya.”",
+          "— Yang selalu nyari kamu duluan",
+        ],
+        [
+          "“Ketemu kamu itu bukan kebetulan. Hati aku milih kamu jauh sebelum aku sadar.”",
+          "— Yang jatuh ke kamu setiap hari",
+        ],
+        [
+          "“Tenang… kamu boleh lelah. Tapi kamu selalu punya aku untuk pulang.”",
+          "— Tempat kamu istirahat",
+        ],
+        [
+          "“Kamu seperti bunga… makin hari makin indah.”",
+          "— Yang selalu jagain kamu",
+        ],
+        [
+          "“Aku tidak tahu masa depan akan seperti apa… tapi kalau ada kamu, aku siap.”",
+          "— Yang mau jalan bareng kamu selamanya",
+        ],
+        [
+          "“Dari semua rasa yang pernah aku temui… rasa kamu tetap paling menenangkan.”",
+          "— Yang nyaman sama kamu",
+        ],
+        [
+          "“Aku nggak butuh yang sempurna. Aku cuma butuh kamu yang apa adanya.”",
+          "— Yang nerima kamu sepenuhnya",
+        ],
+        [
+          "“Kamu itu cerita favorit yang selalu ingin aku baca ulang.”",
+          "— Yang nggak pernah bosan sama kamu",
+        ],
+        [
+          "“Beberapa orang datang cuma singgah… tapi kamu? Kamu tinggal.”",
+          "— Yang memilih tetap di sini",
+        ],
+        [
+          "“Senyum kamu itu kayak rumah. Pulang paling nyaman ya ke situ.”",
+          "— Yang kangen kamu tiap hari",
+        ],
+        [
+          "“Kalau aku punya tiga permintaan… semuanya tetap tentang kamu.”",
+          "— Yang cuma mau kamu, kamu, dan kamu",
+        ],
+        [
+          "“Kamu nggak sadar, tapi kamu itu alasan kecil kenapa hari aku jadi lebih baik.”",
+          "— Yang bahagianya sederhana: kamu",
+        ],
+        [
+          "“Aku suka cara kamu lihat dunia. Sederhana tapi hangat.”",
+          "— Yang kagum sama kamu",
+        ],
+        [
+          "“Setiap kali kamu cerita, aku ngerasa dekat meski lagi jauh.”",
+          "— Yang selalu dengerin kamu",
+        ],
+        [
+          "“Kamu pernah sadar nggak? Kamu itu bikin hati aku tenang cuma dengan ada.”",
+          "— Yang heningnya aja sayang kamu",
+        ],
+        [
+          "“Aku nggak selalu bisa ada secara fisik… tapi hati aku selalu nyari kamu.”",
+          "— Yang hadir dengan cara lain",
+        ],
+        [
+          "“Satu hal yang aku yakin: aku sayang kamu, dan itu nggak akan berubah.”",
+          "— Yang setia sama kamu",
+        ],
+        [
+          "“Nggak ada hari yang buruk kalau akhirnya aku bisa ngobrol sama kamu.”",
+          "— Yang nungguin chat kamu",
+        ],
+        [
+          "“Aku nggak tau gimana caranya, tapi kamu selalu berhasil bikin hati aku lembut.”",
+          "— Yang dilembutin sama kamu",
+        ],
+        [
+          "“Aku mau kamu tahu: kamu cukup. Kamu berharga. Kamu dicintai.”",
+          "— Yang selalu bangga sama kamu",
+        ],
+      ];
+
+      let qi = 0;
+      function loadQuote() {
+        qtext.innerHTML = quotes[qi][0];
+        qauthor.innerHTML = quotes[qi][1];
+      }
+      loadQuote();
+
+      function nextQuote() {
+        qi = (qi + 1) % quotes.length;
+        loadQuote();
       }
 
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
-      const pen = document.getElementById("pen");
-
-      /* Outline animation */
-      let t = 0;
-      let last = null;
-
-      function drawOutline() {
-        const p = toCanvas(heart(t));
-        if (last) {
-          ctx.beginPath();
-          ctx.moveTo(last.x, last.y);
-          ctx.lineTo(p.x, p.y);
-          ctx.strokeStyle = "#ff2f83";
-          ctx.lineWidth = 4;
-          ctx.shadowColor = "#ff3fa2";
-          ctx.shadowBlur = 30;
-          ctx.stroke();
-        }
-        pen.style.left = p.x + "px";
-        pen.style.top = p.y + "px";
-
-        last = p;
-        t += 0.01;
-        if (t < Math.PI * 2) requestAnimationFrame(drawOutline);
-        else setTimeout(fillHeartSolid, 500);
+      /* ENVELOPE */
+      function openEnvelope() {
+        document.getElementById("envelope").classList.toggle("open");
       }
 
-      drawOutline();
-
-      /* ============================================================
-   SOLID HEART FILL
-============================================================ */
-      function fillHeartSolid() {
-        ctx.save();
-        const grad = ctx.createRadialGradient(325, 325, 20, 325, 325, 260);
-        grad.addColorStop(0, "#ff8bd6");
-        grad.addColorStop(1, "#ff2f83");
-
-        ctx.fillStyle = grad;
-
-        ctx.beginPath();
-        let started = false;
-
-        for (let tt = 0; tt <= Math.PI * 2; tt += 0.01) {
-          const p = toCanvas(heart(tt));
-          if (!started) {
-            ctx.moveTo(p.x, p.y);
-            started = true;
-          } else ctx.lineTo(p.x, p.y);
-        }
-
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-
-        canvas.classList.add("pulse");
-
-        launchCupid();
-        heartRainLoop();
-        flowerLoop();
-        setTimeout(bouquetUp, 2000);
-        setTimeout(showLoveText, 1200);
-      }
-
-      /* ============================================================
-   CUPID ARROW
-============================================================ */
-      function launchCupid() {
-        const arrow = document.getElementById("arrow");
-        arrow.classList.add("arrowFly");
-      }
-
-      /* ============================================================
-   BOUQUET RISE
-============================================================ */
-      function bouquetUp() {
-        document.getElementById("bouquet").classList.add("bouquetRise");
-      }
-
-      /* ============================================================
-   TEXT REVEAL
-============================================================ */
-      function showLoveText() {
-        let txt = "I Love You So Much ❤️";
-        let i = 0;
-        const el = document.getElementById("loveText");
-
-        el.style.opacity = 1;
-        el.style.transform = "translateY(0)";
-
-        function type() {
-          el.textContent = txt.slice(0, i);
-          i++;
-          if (i <= txt.length) setTimeout(type, 110);
-        }
-        type();
-      }
-
-      /* ============================================================
-   HEART RAIN
-============================================================ */
-      function heartRainLoop() {
-        setInterval(() => {
-          let h = document.createElement("div");
-          h.className = "rainHeart";
-          h.innerHTML = "💖";
-          h.style.left = Math.random() * 100 + "vw";
-          h.style.fontSize = 15 + Math.random() * 25 + "px";
-          h.style.animationDuration = 3.5 + Math.random() * 2 + "s";
-          document.body.appendChild(h);
-          setTimeout(() => h.remove(), 4500);
-        }, 180);
-      }
-
-      /* ============================================================
-   FLOWER FLOAT
-============================================================ */
-      function flowerLoop() {
-        const flowers = ["🌸", "🌺", "🌷", "🌹", "💮"];
-        setInterval(() => {
-          let f = document.createElement("div");
-          f.className = "flower";
-          f.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-          f.style.left = Math.random() * 100 + "vw";
-          f.style.top = "100vh";
-          f.style.fontSize = 20 + Math.random() * 25 + "px";
-          f.style.animationDuration = 6 + Math.random() * 4 + "s";
-          document.body.appendChild(f);
-          setTimeout(() => f.remove(), 9000);
-        }, 300);
+      function goToLetter() {
+        goTo(4);
       }
     </script>
   </body>
